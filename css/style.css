@@ -1,0 +1,23 @@
+.isNotActive {
+	opacity: 0;
+}
+
+.triggers-span {
+	letter-spacing: 2em;
+}
+
+.active{
+	font-weight: bold;
+	color: gold;
+}
+
+.triggers-ul li,
+.handlingModels li {
+	list-style-type: none;
+}
+.mouseEvents .smallText {
+	font-size: 0.3;
+}
+.btnClickMe {
+	background-color: tomato;
+}

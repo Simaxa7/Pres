@@ -1,0 +1,350 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>simaxa7</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/blood.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- Theme used for syntax highlighting of code -->
+
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        
+        <section class = "title">
+          <h1 class = "title-h1">DOM Events</h1>
+          <p class = "title-p">Simashchanka Pavel, Minsk-dec.2018</p>
+        </section>
+
+        <section class="introduction">
+          <h2>Introduction to browser events</h2>
+          <p>An event is a signal that something has happened. All DOM nodes generate such signals (but events are not limited to DOM).</p>
+          <p>Here’s a list of the most useful DOM events, just to take a look at:</p>
+        </section>
+
+        <section class="triggers">
+          <section>
+            <h2 class="triggers-h2">Triggers</h2>
+            <p>user actions</p>
+            <ul class="triggers-ul">
+              <li class="fragment visible" data-fragment-index="0">
+                <i class="fas fa-mouse-pointer"> - Mouse events</i>
+              </li>
+
+              <li class="fragment visible" data-fragment-index="1">
+                <i class="fas fa-keyboard"> - Keyboard events</i>
+              </li>
+
+              <li class="fragment visible" data-fragment-index="2">
+                <i class="far fa-hand-point-up"> - Touch events</i>
+              </li>
+
+              <li class="fragment visible" data-fragment-index="3">
+                <i class="fas fa-search"> - Form element events</i>
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section class="mouseEvents">
+          <section>         
+            <h3>Mouse events</h3>
+            <p class="smallText">The MouseEvent interface represents events that occur due to the user interacting with a pointing device (such as a mouse). Common events using this interface include</p>
+            <ul>
+              <li class="fragment visible" data-fragment-index="0">click</li>
+              <li class="fragment visible" data-fragment-index="1">dblclick</li>
+              <li class="fragment visible" data-fragment-index="2">contextmenu</li>
+              <li class="fragment visible" data-fragment-index="3">mouseenter</li>
+              <li class="fragment visible" data-fragment-index="4">mousedown</li>
+              <li class="fragment visible" data-fragment-index="5">mousemove</li>
+              <li class="fragment visible" data-fragment-index="6">mouseup...</li>
+            </ul>
+          </section>
+          <section>
+            <img src="./img/mouseClick.jpg" alt="mouse" width="1000em">
+          </section>
+          <section>
+            <img src="./img/mouseCoords.png" alt="mouse" width="1000em">
+          </section>
+        </section>
+
+        <section class="keyboardEvents">
+          <section>
+            <h3>Keyboard events</h3>
+            <p>Keyboard events should be used when we want to handle keyboard actions (virtual keyboard)</p>
+            <ul>
+              <li class="fragment visible" data-fragment-index="0">keydown</li>
+              <li class="fragment visible" data-fragment-index="1">keypress</li>
+              <li class="fragment visible" data-fragment-index="2">keyup</li>
+            </ul>
+          </section>
+          <section>
+            <img src="./img/keyboard.jpg" alt="mouse" width="1000em">
+          </section>
+        </section>
+
+
+        <section class="formElementEvents">
+            <section>
+              <h3>Form element events</h3>
+              <ul>
+                <li class="fragment visible" data-fragment-index="0">change</li>
+                <li class="fragment visible" data-fragment-index="1">input</li>
+                <li class="fragment visible" data-fragment-index="2">cut</li>
+                <li class="fragment visible" data-fragment-index="3">copy</li>
+                <li class="fragment visible" data-fragment-index="4">paste</li>
+                <li class="fragment visible" data-fragment-index="5">submit</li>
+              </ul>
+            </section>
+        </section>
+
+        <section class="touchEvents">
+          <section>
+            <h2>Touch Events</h2>
+            <ul>
+              <li class="fragment visible" data-fragment-index="0">touchstart</li>
+              <li class="fragment visible" data-fragment-index="1">touchmove</li>
+              <li class="fragment visible" data-fragment-index="2">touchend</li>
+              <li class="fragment visible" data-fragment-index="3">touchcancel</li>
+            </ul>
+          </section>
+        </section>
+
+        <section class="present">
+          <h2>Drag events</h2>
+          <ul>
+            <li class="fragment visible" data-fragment-index="0">drag</li>
+            <li class="fragment visible" data-fragment-index="1">dargend</li>
+            <li class="fragment visible" data-fragment-index="2">dragenter</li>
+            <li class="fragment visible" data-fragment-index="3">dragover</li>
+            <li class="fragment visible" data-fragment-index="4">dragleave</li>
+            <li class="fragment visible" data-fragment-index="5">dragstart</li>
+            <li class="fragment visible" data-fragment-index="6">drop</li>
+          </ul>
+        </section>
+
+        <section class="documentEvents">
+          <h3>Document events</h3>
+          <ul>
+            <li>DOMContentLoaded – the browser fully loaded HTML, and the DOM tree is built, 
+              but external resources like pictures and stylesheets may be not yet loaded.</li>
+            <li>Load – the browser loaded all resources (images, styles etc).</li>
+            <li>Beforeunload / unload – when the user is leaving the page.</li>
+          </ul>
+        </section>
+
+        <section class="handlingModels">
+        <section>         
+          <h2>Event handling models</h2>
+          <ul>
+            <li class="fragment visible" data-fragment-index="0">
+              <i class="fas fa-angry"></i>
+              <span>inline</span>
+            </li>
+            <li class="fragment visible" data-fragment-index="1">
+              <i class="fas fa-angry"></i>
+            <span>traditional</span>  
+          </li>
+            <li class="fragment visible current-fragment" data-fragment-index="2">
+            <i class="fas fa-smile"></i>
+            <span>W3C</span>
+          </li>
+          </ul>
+        </section>
+        </section>
+
+        <section class="inline">
+          <section>
+            <h2>inline model</h2>
+          </section>          
+          
+          <section>
+            <h2> + handler (inline)</h2>
+            <div class="example">
+              <script>
+                function clickMe() {
+                  alert(`Don't use inline model`);
+                }
+              </script>
+              <div  onclick="clickMe()">
+                <p class="btnClickMe">Click me</p>
+              </div>
+            </div>
+            
+            <pre><code data-trim class="xml">
+                  <script>
+                    function clickMe() {
+                      alert(`Some text`);
+                    }
+                  </script>
+
+                  <div  onclick="clickMe()">
+                    Click me
+                  </div>
+              </code></pre>
+          </section> 
+          
+          <section>
+            <h2> +/- handler (inline)</h2>
+            <div class="example">
+              <script>
+                function canClickOnlyOne() {
+                  alert(`Don't use inline model`);
+                  event.target.removeAttribute('onclick');
+                }
+              </script>
+              <div class="btnClickMe" onclick="canClickOnlyOne()">
+                Click me
+              </div>
+            </div>
+            <pre><code data-trim class="xml">
+              <script>
+                function canClickOnlyOne() {
+                  alert(`Some text`);
+                  event.target.removeAttribute('onclick');
+                }
+              </script>
+              
+              <div class="btnClickMe" onclick="canClickOnlyOne()">
+                Click me
+              </div>
+              </code></pre>
+          </section> 
+        </section>
+
+        <section class="traditional">
+          <section>
+            <h2>traditional model</h2>
+          </section>
+          
+          <section>
+            <h2> +/- handler (traditional)</h2>
+            <div class="example">
+              <div class="btnClickMe" id="traditionalClick">Click me</div>
+
+              <script>
+                let traditClik = document.querySelector('#traditionalClick');
+                traditClik.onclick = function (e) {
+                  alert('click');
+                }
+              </script>
+            </div>
+            <pre><code data-trim class="xml">
+              <div id="TraditionalClick">Click me</div>
+              <script>
+                let TraditClik = document.querySelector('#traditionalClick');
+                traditClik.onclick = function (e) {
+                  alert('click');
+                  traditClik.onclick = null;//delete-onclick
+                }
+              </script>
+            </code></pre>
+          </section> 
+        </section> 
+
+        <section class="W3C">
+          <section>
+            <h2>W3C</h2>
+          </section>
+          
+          <section>
+            <h2> +/- handler (W3C)</h2>
+            <div class="example">
+              <div id="clickW3c" class="btnClickMe">Click me</div>
+              <script>
+                let w3cClick = document.querySelector('#clickW3c');
+                function alertClick() {
+                  alert('click');
+                  w3cClick.removeEventListener('click', alertClick);//delete-click
+                }
+                w3cClick.addEventListener('click', alertClick);
+              </script>
+            </div>
+            <pre><code data-trim class="xml">
+              <div id="clickW3C">Click me</div>
+              
+              <script>
+                let W3cClick = document.querySelector('#clickW3C');
+                function alertOneClic() {
+                  alert('click');
+                  W3cClick.removeEventListener('click', alertOneClic);//delete-click
+                }
+                W3cClick.addEventListener('click', alertOneClic);
+              </script>
+            </code></pre>
+          </section> 
+        </section> 
+
+        <section class="delegation bubbling">
+          <section> 
+            <h2>EVENT DOM TRIP</h2>
+            <p>capturing: document → e.target</p>
+            <p>bubbling: e.target → document</p>
+          </section>
+          <section>
+            <h2>EVENT DELEGATION</h2>
+            <pre><code data-trim class="xml">
+              <div>
+                <article>
+                  <ol>
+                    <li><a href="#"><img src="#" alt="imga">hello</a></li>
+                    <li><a href="#"><img src="#" alt="imga">hi</a></li>
+                    <li><a href="#"><img src="#" alt="imga">i'm here</a></li>
+                  </ol>
+                </article>  
+              </div>  
+            </code></pre>
+            <ol>
+              <li>listen event on parent</li>
+              <li>all child events bubble to parent</li>
+              <li>check e.target</li>
+            </ol>
+          </section>
+          <section>
+            <img src="./img/bubling.jpg" alt="image">
+          </section>
+          <section>
+            <img src="./img/dispatchEvent.png" alt="image">
+          </section>
+        </section>
+
+        <section>
+          <h2>THANKS<h2> 
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>
